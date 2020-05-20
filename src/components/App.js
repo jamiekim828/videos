@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import VideoDetail from './VideoDetail';
 import youtube from '../apis/youtube';
+import VideoList from './VideoList';
 
 const KEY = 'AIzaSyDqRkoYho0fvow02A6XBzFGGQpyTnc9cVU';
 
@@ -30,6 +31,7 @@ class App extends React.Component {
         <SearchBar onFormSubmit={this.onTermSubmit} />I have{' '}
         {this.state.videos.length} videos.
         <VideoDetail />
+        <VideoList videos={this.state.videos} />
       </div>
     );
   }
