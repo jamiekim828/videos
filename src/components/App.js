@@ -16,6 +16,7 @@ class App extends React.Component {
       params: {
         q: term,
         part: 'snippet',
+        type: 'video',
         maxResults: 5,
         key: KEY,
       },
