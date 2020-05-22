@@ -9,6 +9,11 @@ const KEY = 'AIzaSyDqRkoYho0fvow02A6XBzFGGQpyTnc9cVU';
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
+  // lifecycle method - put default search term which will automatically called
+  componentDidMount() {
+    this.onTermSubmit('netherland today');
+  }
+
   onTermSubmit = async (term) => {
     console.log(term);
 
@@ -23,7 +28,12 @@ class App extends React.Component {
     });
     console.log(response.data.items); //Array(5)
 
-    this.setState({ videos: response.data.items });
+    this.setState({
+      videos: response.data.items,
+
+      // to prevent video detail section being empty
+      selectedVideo: response.data.items[0],
+    });
   };
 
   onVideoSelect = (video) => {
